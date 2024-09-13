@@ -9,13 +9,14 @@ template<typename number_t, typename index_t> number_t get_fibbonachi_number(ind
     return second_last_number;
 }
 
-int main()
+int main(int argv, char **argc)
 {
     std::cout << "Hello world!" << std::endl;
 
-    const unsigned short fibbonachi_numbers_amount = 10;
+    unsigned long fibbonachi_numbers_amount = 10;
+    if (argv >= 2) fibbonachi_numbers_amount = strtoul(argc[1], nullptr, 10);
     std::cout << "Here goes first " << fibbonachi_numbers_amount << " fibbonachi numbers: ";
-    for (unsigned short n = 1; n <= 10; n++) std::cout << get_fibbonachi_number<unsigned long long, unsigned short>(n) << ' ';
+    for (unsigned long n = 1; n <= fibbonachi_numbers_amount; n++) std::cout << get_fibbonachi_number<unsigned long long, unsigned short>(n) << ' ';
     std::cout << std::endl;
 
     return 0;
